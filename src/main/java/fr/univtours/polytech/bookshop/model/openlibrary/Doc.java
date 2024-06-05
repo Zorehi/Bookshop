@@ -4,7 +4,7 @@ package fr.univtours.polytech.bookshop.model.openlibrary;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
-import javax.annotation.Generated;
+import jakarta.annotation.Generated;
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -67,7 +67,19 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
     "lcc_sort",
     "author_facet",
     "subject_key",
-    "time_key"
+    "time_key",
+    "format",
+    "ratings_count_1",
+    "ratings_count_2",
+    "ratings_count_3",
+    "ratings_count_4",
+    "ratings_count_5",
+    "ratings_average",
+    "ratings_sortable",
+    "ratings_count",
+    "ddc",
+    "ddc_sort",
+    "contributor"
 })
 @Generated("jsonschema2pojo")
 public class Doc {
@@ -180,6 +192,30 @@ public class Doc {
     private List<String> subject_key;
     @JsonProperty("time_key")
     private List<String> time_key;
+    @JsonProperty("format")
+    private List<String> format;
+    @JsonProperty("ratings_count_1")
+    private Integer ratings_count_1;
+    @JsonProperty("ratings_count_2")
+    private Integer ratings_count_2;
+    @JsonProperty("ratings_count_3")
+    private Integer ratings_count_3;
+    @JsonProperty("ratings_count_4")
+    private Integer ratings_count_4;
+    @JsonProperty("ratings_count_5")
+    private Integer ratings_count_5;
+    @JsonProperty("ratings_average")
+    private Double ratings_average;
+    @JsonProperty("ratings_sortable")
+    private Double ratings_sortable;
+    @JsonProperty("ratings_count")
+    private Integer ratings_count;
+    @JsonProperty("ddc")
+    private List<String> ddc;
+    @JsonProperty("ddc_sort")
+    private String ddc_sort;
+    @JsonProperty("contributor")
+    private List<String> contributor;
     @JsonIgnore
     private Map<String, Object> additionalProperties = new LinkedHashMap<String, Object>();
 
@@ -721,6 +757,126 @@ public class Doc {
     @JsonProperty("time_key")
     public void setTime_key(List<String> time_key) {
         this.time_key = time_key;
+    }
+
+    @JsonProperty("format")
+    public List<String> getFormat() {
+        return format;
+    }
+
+    @JsonProperty("format")
+    public void setFormat(List<String> format) {
+        this.format = format;
+    }
+
+    @JsonProperty("ratings_count_1")
+    public Integer getRatings_count_1() {
+        return ratings_count_1;
+    }
+
+    @JsonProperty("ratings_count_1")
+    public void setRatings_count_1(Integer ratings_count_1) {
+        this.ratings_count_1 = ratings_count_1;
+    }
+
+    @JsonProperty("ratings_count_2")
+    public Integer getRatings_count_2() {
+        return ratings_count_2;
+    }
+
+    @JsonProperty("ratings_count_2")
+    public void setRatings_count_2(Integer ratings_count_2) {
+        this.ratings_count_2 = ratings_count_2;
+    }
+
+    @JsonProperty("ratings_count_3")
+    public Integer getRatings_count_3() {
+        return ratings_count_3;
+    }
+
+    @JsonProperty("ratings_count_3")
+    public void setRatings_count_3(Integer ratings_count_3) {
+        this.ratings_count_3 = ratings_count_3;
+    }
+
+    @JsonProperty("ratings_count_4")
+    public Integer getRatings_count_4() {
+        return ratings_count_4;
+    }
+
+    @JsonProperty("ratings_count_4")
+    public void setRatings_count_4(Integer ratings_count_4) {
+        this.ratings_count_4 = ratings_count_4;
+    }
+
+    @JsonProperty("ratings_count_5")
+    public Integer getRatings_count_5() {
+        return ratings_count_5;
+    }
+
+    @JsonProperty("ratings_count_5")
+    public void setRatings_count_5(Integer ratings_count_5) {
+        this.ratings_count_5 = ratings_count_5;
+    }
+
+    @JsonProperty("ratings_average")
+    public Double getRatings_average() {
+        return ratings_average;
+    }
+
+    @JsonProperty("ratings_average")
+    public void setRatings_average(Double ratings_average) {
+        this.ratings_average = ratings_average;
+    }
+
+    @JsonProperty("ratings_sortable")
+    public Double getRatings_sortable() {
+        return ratings_sortable;
+    }
+
+    @JsonProperty("ratings_sortable")
+    public void setRatings_sortable(Double ratings_sortable) {
+        this.ratings_sortable = ratings_sortable;
+    }
+
+    @JsonProperty("ratings_count")
+    public Integer getRatings_count() {
+        return ratings_count;
+    }
+
+    @JsonProperty("ratings_count")
+    public void setRatings_count(Integer ratings_count) {
+        this.ratings_count = ratings_count;
+    }
+
+    @JsonProperty("ddc")
+    public List<String> getDdc() {
+        return ddc;
+    }
+
+    @JsonProperty("ddc")
+    public void setDdc(List<String> ddc) {
+        this.ddc = ddc;
+    }
+
+    @JsonProperty("ddc_sort")
+    public String getDdc_sort() {
+        return ddc_sort;
+    }
+
+    @JsonProperty("ddc_sort")
+    public void setDdc_sort(String ddc_sort) {
+        this.ddc_sort = ddc_sort;
+    }
+
+    @JsonProperty("contributor")
+    public List<String> getContributor() {
+        return contributor;
+    }
+
+    @JsonProperty("contributor")
+    public void setContributor(List<String> contributor) {
+        this.contributor = contributor;
     }
 
     @JsonAnyGetter

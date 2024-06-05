@@ -1,22 +1,18 @@
 package fr.univtours.polytech.bookshop.dao;
 
-import fr.univtours.polytech.bookshop.model.exchangerate.ConversionRates;
+import fr.univtours.polytech.bookshop.model.exchangerate.Conversion_rates;
 import fr.univtours.polytech.bookshop.model.exchangerate.WsExchangeRate;
-import fr.univtours.polytech.bookshop.model.openlibrary.Doc;
-import fr.univtours.polytech.bookshop.model.openlibrary.WsOpenLibrary;
 import jakarta.ejb.Stateless;
 import jakarta.ws.rs.client.Client;
 import jakarta.ws.rs.client.ClientBuilder;
 import jakarta.ws.rs.client.WebTarget;
 import jakarta.ws.rs.core.MediaType;
 
-import java.util.List;
-
 @Stateless
 public class ExchangeRateDAOImpl implements ExchangeRateDAO{
     private static String URL ="https://v6.exchangerate-api.com";
 
-    public ConversionRates getConversion() {
+    public Conversion_rates getConversion() {
         // Instanciation du client.
         Client client = ClientBuilder.newClient();
 

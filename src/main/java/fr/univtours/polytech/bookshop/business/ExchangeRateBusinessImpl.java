@@ -1,8 +1,7 @@
 package fr.univtours.polytech.bookshop.business;
 
 import fr.univtours.polytech.bookshop.dao.ExchangeRateDAO;
-import fr.univtours.polytech.bookshop.dao.OpenLibraryDAO;
-import fr.univtours.polytech.bookshop.model.exchangerate.ConversionRates;
+import fr.univtours.polytech.bookshop.model.exchangerate.Conversion_rates;
 import jakarta.ejb.Stateless;
 import jakarta.inject.Inject;
 
@@ -11,11 +10,8 @@ public class ExchangeRateBusinessImpl implements ExchangeRateBusiness {
     @Inject
     private ExchangeRateDAO exchangeRateDAO;
 
-    @Inject
-    private ConversionRates conversionRates;
-
     public float convertToEUR(String currency, float value){
-        conversionRates = exchangeRateDAO.getConversion();
+        Conversion_rates conversionRates = exchangeRateDAO.getConversion();
         Double conversion = 1D;
         float convertedValue;
         switch (currency){

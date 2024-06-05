@@ -1,8 +1,8 @@
 package fr.univtours.polytech.bookshop.dao;
 
-import fr.univtours.polytech.bookshop.model.exchangerate.ConversionRates;
+import fr.univtours.polytech.bookshop.model.exchangerate.Conversion_rates;
 
 public interface ExchangeRateDAO {
 
-    public ConversionRates getConversion();
+    public Conversion_rates getConversion();
 }
