@@ -1,0 +1,16 @@
+Listes des endpoints: 
+
+url : http://localhost:8080/bookshop/api/v1/books
+
+GET : Permet de récuperer la liste de tous les livres
+POST : Permet de créer un livre ( besoin d'un body + Headers Authentificable = 42 ) 
+
+url 
+
+
+url : http://localhost:8080/bookshop/api/v1/books{id}
+
+Get : Permet de récupérer les éléments d'un livre en donnant son id
+Delete : Permet de supprimer le livre associé à l'id
+Put : Permet de modifier toutes les données d'un livre (besoin d'un body + Headers Authentificable = 42)
+Patch : Permet de modifier les données partiels d'une livre  (besoin d'un body + Headers Authentificable = 42)  
