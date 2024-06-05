@@ -2,9 +2,14 @@ package fr.univtours.polytech.bookshop.model;
 
 import java.io.Serializable;
 
-import jakarta.persistence.*;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.xml.bind.annotation.XmlRootElement;
 
 @Entity(name = "BOOK")
+@XmlRootElement
 public class BookBean implements Serializable {
 
     @Id
