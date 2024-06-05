@@ -22,11 +22,15 @@
             <tr>
                 <th>Titre</th>
                 <th>Auteur</th>
+                <th>Nombre de notes</th>
+                <th>Moyenne des notes</th>
             </tr>
             <c:forEach items="${requestScope.BOOKS}" var="book">
                 <tr>
                     <td>${book.title}</td>
                     <td>${book.author}</td>
+                    <td>${book.ratings_count}</td>
+                    <td>${book.ratings_average}</td>
                 </tr>
             </c:forEach>
         </table>

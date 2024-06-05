@@ -11,41 +11,23 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import jakarta.validation.Valid;
-import jakarta.validation.constraints.DecimalMin;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonPropertyOrder({
-    "author_alternative_name",
     "author_key",
     "author_name",
-    "contributor",
-    "cover_edition_key",
-    "cover_i",
-    "ddc",
     "ebook_access",
     "ebook_count_i",
     "edition_count",
     "edition_key",
     "first_publish_year",
-    "first_sentence",
-    "format",
     "has_fulltext",
-    "ia",
-    "ia_collection",
-    "ia_collection_s",
     "isbn",
     "key",
     "language",
     "last_modified_i",
     "lcc",
-    "lccn",
-    "lending_edition_s",
-    "lending_identifier_s",
     "number_of_pages_median",
-    "oclc",
-    "osp_count",
-    "printdisabled_s",
     "public_scan_b",
     "publish_date",
     "publish_place",
@@ -56,76 +38,56 @@ import jakarta.validation.constraints.DecimalMin;
     "title_suggest",
     "title_sort",
     "type",
-    "id_amazon",
-    "id_better_world_books",
     "id_goodreads",
+    "person",
+    "publisher_facet",
+    "person_key",
+    "person_facet",
+    "_version_",
+    "lcc_sort",
+    "author_facet",
+    "contributor",
+    "cover_edition_key",
+    "cover_i",
+    "format",
+    "ia",
+    "ia_collection",
+    "ia_collection_s",
+    "lccn",
+    "lending_edition_s",
+    "lending_identifier_s",
+    "oclc",
+    "osp_count",
+    "printdisabled_s",
     "id_librarything",
-    "id_google",
-    "id_scribd",
-    "id_amazon_de_asin",
-    "id_alibris_id",
-    "id_nla",
-    "id_amazon_ca_asin",
-    "id_overdrive",
-    "id_hathi_trust",
-    "id_amazon_it_asin",
-    "id_paperback_swap",
-    "id_british_national_bibliography",
-    "id_british_library",
-    "id_biblioth\u00e8que_nationale_de_france",
-    "id_amazon_co_uk_asin",
-    "id_bcid",
     "subject",
     "place",
-    "person",
     "ia_loaded_id",
     "ia_box_id",
-    "ratings_average",
-    "ratings_sortable",
-    "ratings_count",
     "ratings_count_1",
     "ratings_count_2",
     "ratings_count_3",
     "ratings_count_4",
     "ratings_count_5",
+    "ratings_average",
+    "ratings_sortable",
+    "ratings_count",
     "readinglog_count",
     "want_to_read_count",
     "currently_reading_count",
     "already_read_count",
-    "publisher_facet",
-    "person_key",
     "place_key",
-    "person_facet",
     "subject_facet",
-    "_version_",
     "place_facet",
-    "lcc_sort",
-    "author_facet",
-    "subject_key",
-    "ddc_sort"
+    "subject_key"
 })
 @Generated("jsonschema2pojo")
 public class Doc {
 
-    @JsonProperty("author_alternative_name")
-    @Valid
-    private List<String> authorAlternativeName;
     @JsonProperty("author_key")
-    @Valid
     private List<String> authorKey;
     @JsonProperty("author_name")
-    @Valid
     private List<String> authorName;
-    @JsonProperty("contributor")
-    @Valid
-    private List<String> contributor;
-    @JsonProperty("cover_edition_key")
-    private String coverEditionKey;
-    @JsonProperty("cover_i")
-    private Integer coverI;
-    @JsonProperty("ddc")
-    @Valid
-    private List<String> ddc;
     @JsonProperty("ebook_access")
     private String ebookAccess;
     @JsonProperty("ebook_count_i")
@@ -133,71 +95,34 @@ public class Doc {
     @JsonProperty("edition_count")
     private Integer editionCount;
     @JsonProperty("edition_key")
-    @Valid
     private List<String> editionKey;
     @JsonProperty("first_publish_year")
     private Integer firstPublishYear;
-    @JsonProperty("first_sentence")
-    @Valid
-    private List<String> firstSentence;
-    @JsonProperty("format")
-    @Valid
-    private List<String> format;
     @JsonProperty("has_fulltext")
     private Boolean hasFulltext;
-    @JsonProperty("ia")
-    @Valid
-    private List<String> ia;
-    @JsonProperty("ia_collection")
-    @Valid
-    private List<String> iaCollection;
-    @JsonProperty("ia_collection_s")
-    private String iaCollectionS;
     @JsonProperty("isbn")
-    @Valid
     private List<String> isbn;
     @JsonProperty("key")
     private String key;
     @JsonProperty("language")
-    @Valid
     private List<String> language;
     @JsonProperty("last_modified_i")
     private Integer lastModifiedI;
     @JsonProperty("lcc")
-    @Valid
     private List<String> lcc;
-    @JsonProperty("lccn")
-    @Valid
-    private List<String> lccn;
-    @JsonProperty("lending_edition_s")
-    private String lendingEditionS;
-    @JsonProperty("lending_identifier_s")
-    private String lendingIdentifierS;
     @JsonProperty("number_of_pages_median")
     private Integer numberOfPagesMedian;
-    @JsonProperty("oclc")
-    @Valid
-    private List<String> oclc;
-    @JsonProperty("osp_count")
-    private Integer ospCount;
-    @JsonProperty("printdisabled_s")
-    private String printdisabledS;
     @JsonProperty("public_scan_b")
     private Boolean publicScanB;
     @JsonProperty("publish_date")
-    @Valid
     private List<String> publishDate;
     @JsonProperty("publish_place")
-    @Valid
     private List<String> publishPlace;
     @JsonProperty("publish_year")
-    @Valid
     private List<Integer> publishYear;
     @JsonProperty("publisher")
-    @Valid
     private List<String> publisher;
     @JsonProperty("seed")
-    @Valid
     private List<String> seed;
     @JsonProperty("title")
     private String title;
@@ -207,84 +132,58 @@ public class Doc {
     private String titleSort;
     @JsonProperty("type")
     private String type;
-    @JsonProperty("id_amazon")
-    @Valid
-    private List<String> idAmazon;
-    @JsonProperty("id_better_world_books")
-    @Valid
-    private List<String> idBetterWorldBooks;
     @JsonProperty("id_goodreads")
-    @Valid
     private List<String> idGoodreads;
+    @JsonProperty("person")
+    private List<String> person;
+    @JsonProperty("publisher_facet")
+    private List<String> publisherFacet;
+    @JsonProperty("person_key")
+    private List<String> personKey;
+    @JsonProperty("person_facet")
+    private List<String> personFacet;
+    @JsonProperty("_version_")
+    private Long version;
+    @JsonProperty("lcc_sort")
+    private String lccSort;
+    @JsonProperty("author_facet")
+    private List<String> authorFacet;
+    @JsonProperty("contributor")
+    private List<String> contributor;
+    @JsonProperty("cover_edition_key")
+    private String coverEditionKey;
+    @JsonProperty("cover_i")
+    private Integer coverI;
+    @JsonProperty("format")
+    private List<String> format;
+    @JsonProperty("ia")
+    private List<String> ia;
+    @JsonProperty("ia_collection")
+    private List<String> iaCollection;
+    @JsonProperty("ia_collection_s")
+    private String iaCollectionS;
+    @JsonProperty("lccn")
+    private List<String> lccn;
+    @JsonProperty("lending_edition_s")
+    private String lendingEditionS;
+    @JsonProperty("lending_identifier_s")
+    private String lendingIdentifierS;
+    @JsonProperty("oclc")
+    private List<String> oclc;
+    @JsonProperty("osp_count")
+    private Integer ospCount;
+    @JsonProperty("printdisabled_s")
+    private String printdisabledS;
     @JsonProperty("id_librarything")
-    @Valid
     private List<String> idLibrarything;
-    @JsonProperty("id_google")
-    @Valid
-    private List<String> idGoogle;
-    @JsonProperty("id_scribd")
-    @Valid
-    private List<String> idScribd;
-    @JsonProperty("id_amazon_de_asin")
-    @Valid
-    private List<String> idAmazonDeAsin;
-    @JsonProperty("id_alibris_id")
-    @Valid
-    private List<String> idAlibrisId;
-    @JsonProperty("id_nla")
-    @Valid
-    private List<String> idNla;
-    @JsonProperty("id_amazon_ca_asin")
-    @Valid
-    private List<String> idAmazonCaAsin;
-    @JsonProperty("id_overdrive")
-    @Valid
-    private List<String> idOverdrive;
-    @JsonProperty("id_hathi_trust")
-    @Valid
-    private List<String> idHathiTrust;
-    @JsonProperty("id_amazon_it_asin")
-    @Valid
-    private List<String> idAmazonItAsin;
-    @JsonProperty("id_paperback_swap")
-    @Valid
-    private List<String> idPaperbackSwap;
-    @JsonProperty("id_british_national_bibliography")
-    @Valid
-    private List<String> idBritishNationalBibliography;
-    @JsonProperty("id_british_library")
-    @Valid
-    private List<String> idBritishLibrary;
-    @JsonProperty("id_biblioth\u00e8que_nationale_de_france")
-    @Valid
-    private List<String> idBibliothQueNationaleDeFrance;
-    @JsonProperty("id_amazon_co_uk_asin")
-    @Valid
-    private List<String> idAmazonCoUkAsin;
-    @JsonProperty("id_bcid")
-    @Valid
-    private List<String> idBcid;
     @JsonProperty("subject")
-    @Valid
     private List<String> subject;
     @JsonProperty("place")
-    @Valid
     private List<String> place;
-    @JsonProperty("person")
-    @Valid
-    private List<String> person;
     @JsonProperty("ia_loaded_id")
-    @Valid
     private List<String> iaLoadedId;
     @JsonProperty("ia_box_id")
-    @Valid
     private List<String> iaBoxId;
-    @JsonProperty("ratings_average")
-    private Double ratingsAverage;
-    @JsonProperty("ratings_sortable")
-    private Double ratingsSortable;
-    @JsonProperty("ratings_count")
-    private Integer ratingsCount;
     @JsonProperty("ratings_count_1")
     private Integer ratingsCount1;
     @JsonProperty("ratings_count_2")
@@ -295,6 +194,12 @@ public class Doc {
     private Integer ratingsCount4;
     @JsonProperty("ratings_count_5")
     private Integer ratingsCount5;
+    @JsonProperty("ratings_average")
+    private Double ratingsAverage;
+    @JsonProperty("ratings_sortable")
+    private Double ratingsSortable;
+    @JsonProperty("ratings_count")
+    private Integer ratingsCount;
     @JsonProperty("readinglog_count")
     private Integer readinglogCount;
     @JsonProperty("want_to_read_count")
@@ -303,50 +208,16 @@ public class Doc {
     private Integer currentlyReadingCount;
     @JsonProperty("already_read_count")
     private Integer alreadyReadCount;
-    @JsonProperty("publisher_facet")
-    @Valid
-    private List<String> publisherFacet;
-    @JsonProperty("person_key")
-    @Valid
-    private List<String> personKey;
     @JsonProperty("place_key")
-    @Valid
     private List<String> placeKey;
-    @JsonProperty("person_facet")
-    @Valid
-    private List<String> personFacet;
     @JsonProperty("subject_facet")
-    @Valid
     private List<String> subjectFacet;
-    @JsonProperty("_version_")
-    @DecimalMin("9223372036854775807")
-    private Long version;
     @JsonProperty("place_facet")
-    @Valid
     private List<String> placeFacet;
-    @JsonProperty("lcc_sort")
-    private String lccSort;
-    @JsonProperty("author_facet")
-    @Valid
-    private List<String> authorFacet;
     @JsonProperty("subject_key")
-    @Valid
     private List<String> subjectKey;
-    @JsonProperty("ddc_sort")
-    private String ddcSort;
     @JsonIgnore
-    @Valid
     private Map<String, Object> additionalProperties = new LinkedHashMap<String, Object>();
-
-    @JsonProperty("author_alternative_name")
-    public List<String> getAuthorAlternativeName() {
-        return authorAlternativeName;
-    }
-
-    @JsonProperty("author_alternative_name")
-    public void setAuthorAlternativeName(List<String> authorAlternativeName) {
-        this.authorAlternativeName = authorAlternativeName;
-    }
 
     @JsonProperty("author_key")
     public List<String> getAuthorKey() {
@@ -366,46 +237,6 @@ public class Doc {
     @JsonProperty("author_name")
     public void setAuthorName(List<String> authorName) {
         this.authorName = authorName;
-    }
-
-    @JsonProperty("contributor")
-    public List<String> getContributor() {
-        return contributor;
-    }
-
-    @JsonProperty("contributor")
-    public void setContributor(List<String> contributor) {
-        this.contributor = contributor;
-    }
-
-    @JsonProperty("cover_edition_key")
-    public String getCoverEditionKey() {
-        return coverEditionKey;
-    }
-
-    @JsonProperty("cover_edition_key")
-    public void setCoverEditionKey(String coverEditionKey) {
-        this.coverEditionKey = coverEditionKey;
-    }
-
-    @JsonProperty("cover_i")
-    public Integer getCoverI() {
-        return coverI;
-    }
-
-    @JsonProperty("cover_i")
-    public void setCoverI(Integer coverI) {
-        this.coverI = coverI;
-    }
-
-    @JsonProperty("ddc")
-    public List<String> getDdc() {
-        return ddc;
-    }
-
-    @JsonProperty("ddc")
-    public void setDdc(List<String> ddc) {
-        this.ddc = ddc;
     }
 
     @JsonProperty("ebook_access")
@@ -458,26 +289,6 @@ public class Doc {
         this.firstPublishYear = firstPublishYear;
     }
 
-    @JsonProperty("first_sentence")
-    public List<String> getFirstSentence() {
-        return firstSentence;
-    }
-
-    @JsonProperty("first_sentence")
-    public void setFirstSentence(List<String> firstSentence) {
-        this.firstSentence = firstSentence;
-    }
-
-    @JsonProperty("format")
-    public List<String> getFormat() {
-        return format;
-    }
-
-    @JsonProperty("format")
-    public void setFormat(List<String> format) {
-        this.format = format;
-    }
-
     @JsonProperty("has_fulltext")
     public Boolean getHasFulltext() {
         return hasFulltext;
@@ -486,36 +297,6 @@ public class Doc {
     @JsonProperty("has_fulltext")
     public void setHasFulltext(Boolean hasFulltext) {
         this.hasFulltext = hasFulltext;
-    }
-
-    @JsonProperty("ia")
-    public List<String> getIa() {
-        return ia;
-    }
-
-    @JsonProperty("ia")
-    public void setIa(List<String> ia) {
-        this.ia = ia;
-    }
-
-    @JsonProperty("ia_collection")
-    public List<String> getIaCollection() {
-        return iaCollection;
-    }
-
-    @JsonProperty("ia_collection")
-    public void setIaCollection(List<String> iaCollection) {
-        this.iaCollection = iaCollection;
-    }
-
-    @JsonProperty("ia_collection_s")
-    public String getIaCollectionS() {
-        return iaCollectionS;
-    }
-
-    @JsonProperty("ia_collection_s")
-    public void setIaCollectionS(String iaCollectionS) {
-        this.iaCollectionS = iaCollectionS;
     }
 
     @JsonProperty("isbn")
@@ -568,36 +349,6 @@ public class Doc {
         this.lcc = lcc;
     }
 
-    @JsonProperty("lccn")
-    public List<String> getLccn() {
-        return lccn;
-    }
-
-    @JsonProperty("lccn")
-    public void setLccn(List<String> lccn) {
-        this.lccn = lccn;
-    }
-
-    @JsonProperty("lending_edition_s")
-    public String getLendingEditionS() {
-        return lendingEditionS;
-    }
-
-    @JsonProperty("lending_edition_s")
-    public void setLendingEditionS(String lendingEditionS) {
-        this.lendingEditionS = lendingEditionS;
-    }
-
-    @JsonProperty("lending_identifier_s")
-    public String getLendingIdentifierS() {
-        return lendingIdentifierS;
-    }
-
-    @JsonProperty("lending_identifier_s")
-    public void setLendingIdentifierS(String lendingIdentifierS) {
-        this.lendingIdentifierS = lendingIdentifierS;
-    }
-
     @JsonProperty("number_of_pages_median")
     public Integer getNumberOfPagesMedian() {
         return numberOfPagesMedian;
@@ -606,36 +357,6 @@ public class Doc {
     @JsonProperty("number_of_pages_median")
     public void setNumberOfPagesMedian(Integer numberOfPagesMedian) {
         this.numberOfPagesMedian = numberOfPagesMedian;
-    }
-
-    @JsonProperty("oclc")
-    public List<String> getOclc() {
-        return oclc;
-    }
-
-    @JsonProperty("oclc")
-    public void setOclc(List<String> oclc) {
-        this.oclc = oclc;
-    }
-
-    @JsonProperty("osp_count")
-    public Integer getOspCount() {
-        return ospCount;
-    }
-
-    @JsonProperty("osp_count")
-    public void setOspCount(Integer ospCount) {
-        this.ospCount = ospCount;
-    }
-
-    @JsonProperty("printdisabled_s")
-    public String getPrintdisabledS() {
-        return printdisabledS;
-    }
-
-    @JsonProperty("printdisabled_s")
-    public void setPrintdisabledS(String printdisabledS) {
-        this.printdisabledS = printdisabledS;
     }
 
     @JsonProperty("public_scan_b")
@@ -738,26 +459,6 @@ public class Doc {
         this.type = type;
     }
 
-    @JsonProperty("id_amazon")
-    public List<String> getIdAmazon() {
-        return idAmazon;
-    }
-
-    @JsonProperty("id_amazon")
-    public void setIdAmazon(List<String> idAmazon) {
-        this.idAmazon = idAmazon;
-    }
-
-    @JsonProperty("id_better_world_books")
-    public List<String> getIdBetterWorldBooks() {
-        return idBetterWorldBooks;
-    }
-
-    @JsonProperty("id_better_world_books")
-    public void setIdBetterWorldBooks(List<String> idBetterWorldBooks) {
-        this.idBetterWorldBooks = idBetterWorldBooks;
-    }
-
     @JsonProperty("id_goodreads")
     public List<String> getIdGoodreads() {
         return idGoodreads;
@@ -768,6 +469,206 @@ public class Doc {
         this.idGoodreads = idGoodreads;
     }
 
+    @JsonProperty("person")
+    public List<String> getPerson() {
+        return person;
+    }
+
+    @JsonProperty("person")
+    public void setPerson(List<String> person) {
+        this.person = person;
+    }
+
+    @JsonProperty("publisher_facet")
+    public List<String> getPublisherFacet() {
+        return publisherFacet;
+    }
+
+    @JsonProperty("publisher_facet")
+    public void setPublisherFacet(List<String> publisherFacet) {
+        this.publisherFacet = publisherFacet;
+    }
+
+    @JsonProperty("person_key")
+    public List<String> getPersonKey() {
+        return personKey;
+    }
+
+    @JsonProperty("person_key")
+    public void setPersonKey(List<String> personKey) {
+        this.personKey = personKey;
+    }
+
+    @JsonProperty("person_facet")
+    public List<String> getPersonFacet() {
+        return personFacet;
+    }
+
+    @JsonProperty("person_facet")
+    public void setPersonFacet(List<String> personFacet) {
+        this.personFacet = personFacet;
+    }
+
+    @JsonProperty("_version_")
+    public Long getVersion() {
+        return version;
+    }
+
+    @JsonProperty("_version_")
+    public void setVersion(Long version) {
+        this.version = version;
+    }
+
+    @JsonProperty("lcc_sort")
+    public String getLccSort() {
+        return lccSort;
+    }
+
+    @JsonProperty("lcc_sort")
+    public void setLccSort(String lccSort) {
+        this.lccSort = lccSort;
+    }
+
+    @JsonProperty("author_facet")
+    public List<String> getAuthorFacet() {
+        return authorFacet;
+    }
+
+    @JsonProperty("author_facet")
+    public void setAuthorFacet(List<String> authorFacet) {
+        this.authorFacet = authorFacet;
+    }
+
+    @JsonProperty("contributor")
+    public List<String> getContributor() {
+        return contributor;
+    }
+
+    @JsonProperty("contributor")
+    public void setContributor(List<String> contributor) {
+        this.contributor = contributor;
+    }
+
+    @JsonProperty("cover_edition_key")
+    public String getCoverEditionKey() {
+        return coverEditionKey;
+    }
+
+    @JsonProperty("cover_edition_key")
+    public void setCoverEditionKey(String coverEditionKey) {
+        this.coverEditionKey = coverEditionKey;
+    }
+
+    @JsonProperty("cover_i")
+    public Integer getCoverI() {
+        return coverI;
+    }
+
+    @JsonProperty("cover_i")
+    public void setCoverI(Integer coverI) {
+        this.coverI = coverI;
+    }
+
+    @JsonProperty("format")
+    public List<String> getFormat() {
+        return format;
+    }
+
+    @JsonProperty("format")
+    public void setFormat(List<String> format) {
+        this.format = format;
+    }
+
+    @JsonProperty("ia")
+    public List<String> getIa() {
+        return ia;
+    }
+
+    @JsonProperty("ia")
+    public void setIa(List<String> ia) {
+        this.ia = ia;
+    }
+
+    @JsonProperty("ia_collection")
+    public List<String> getIaCollection() {
+        return iaCollection;
+    }
+
+    @JsonProperty("ia_collection")
+    public void setIaCollection(List<String> iaCollection) {
+        this.iaCollection = iaCollection;
+    }
+
+    @JsonProperty("ia_collection_s")
+    public String getIaCollectionS() {
+        return iaCollectionS;
+    }
+
+    @JsonProperty("ia_collection_s")
+    public void setIaCollectionS(String iaCollectionS) {
+        this.iaCollectionS = iaCollectionS;
+    }
+
+    @JsonProperty("lccn")
+    public List<String> getLccn() {
+        return lccn;
+    }
+
+    @JsonProperty("lccn")
+    public void setLccn(List<String> lccn) {
+        this.lccn = lccn;
+    }
+
+    @JsonProperty("lending_edition_s")
+    public String getLendingEditionS() {
+        return lendingEditionS;
+    }
+
+    @JsonProperty("lending_edition_s")
+    public void setLendingEditionS(String lendingEditionS) {
+        this.lendingEditionS = lendingEditionS;
+    }
+
+    @JsonProperty("lending_identifier_s")
+    public String getLendingIdentifierS() {
+        return lendingIdentifierS;
+    }
+
+    @JsonProperty("lending_identifier_s")
+    public void setLendingIdentifierS(String lendingIdentifierS) {
+        this.lendingIdentifierS = lendingIdentifierS;
+    }
+
+    @JsonProperty("oclc")
+    public List<String> getOclc() {
+        return oclc;
+    }
+
+    @JsonProperty("oclc")
+    public void setOclc(List<String> oclc) {
+        this.oclc = oclc;
+    }
+
+    @JsonProperty("osp_count")
+    public Integer getOspCount() {
+        return ospCount;
+    }
+
+    @JsonProperty("osp_count")
+    public void setOspCount(Integer ospCount) {
+        this.ospCount = ospCount;
+    }
+
+    @JsonProperty("printdisabled_s")
+    public String getPrintdisabledS() {
+        return printdisabledS;
+    }
+
+    @JsonProperty("printdisabled_s")
+    public void setPrintdisabledS(String printdisabledS) {
+        this.printdisabledS = printdisabledS;
+    }
+
     @JsonProperty("id_librarything")
     public List<String> getIdLibrarything() {
         return idLibrarything;
@@ -776,156 +677,6 @@ public class Doc {
     @JsonProperty("id_librarything")
     public void setIdLibrarything(List<String> idLibrarything) {
         this.idLibrarything = idLibrarything;
-    }
-
-    @JsonProperty("id_google")
-    public List<String> getIdGoogle() {
-        return idGoogle;
-    }
-
-    @JsonProperty("id_google")
-    public void setIdGoogle(List<String> idGoogle) {
-        this.idGoogle = idGoogle;
-    }
-
-    @JsonProperty("id_scribd")
-    public List<String> getIdScribd() {
-        return idScribd;
-    }
-
-    @JsonProperty("id_scribd")
-    public void setIdScribd(List<String> idScribd) {
-        this.idScribd = idScribd;
-    }
-
-    @JsonProperty("id_amazon_de_asin")
-    public List<String> getIdAmazonDeAsin() {
-        return idAmazonDeAsin;
-    }
-
-    @JsonProperty("id_amazon_de_asin")
-    public void setIdAmazonDeAsin(List<String> idAmazonDeAsin) {
-        this.idAmazonDeAsin = idAmazonDeAsin;
-    }
-
-    @JsonProperty("id_alibris_id")
-    public List<String> getIdAlibrisId() {
-        return idAlibrisId;
-    }
-
-    @JsonProperty("id_alibris_id")
-    public void setIdAlibrisId(List<String> idAlibrisId) {
-        this.idAlibrisId = idAlibrisId;
-    }
-
-    @JsonProperty("id_nla")
-    public List<String> getIdNla() {
-        return idNla;
-    }
-
-    @JsonProperty("id_nla")
-    public void setIdNla(List<String> idNla) {
-        this.idNla = idNla;
-    }
-
-    @JsonProperty("id_amazon_ca_asin")
-    public List<String> getIdAmazonCaAsin() {
-        return idAmazonCaAsin;
-    }
-
-    @JsonProperty("id_amazon_ca_asin")
-    public void setIdAmazonCaAsin(List<String> idAmazonCaAsin) {
-        this.idAmazonCaAsin = idAmazonCaAsin;
-    }
-
-    @JsonProperty("id_overdrive")
-    public List<String> getIdOverdrive() {
-        return idOverdrive;
-    }
-
-    @JsonProperty("id_overdrive")
-    public void setIdOverdrive(List<String> idOverdrive) {
-        this.idOverdrive = idOverdrive;
-    }
-
-    @JsonProperty("id_hathi_trust")
-    public List<String> getIdHathiTrust() {
-        return idHathiTrust;
-    }
-
-    @JsonProperty("id_hathi_trust")
-    public void setIdHathiTrust(List<String> idHathiTrust) {
-        this.idHathiTrust = idHathiTrust;
-    }
-
-    @JsonProperty("id_amazon_it_asin")
-    public List<String> getIdAmazonItAsin() {
-        return idAmazonItAsin;
-    }
-
-    @JsonProperty("id_amazon_it_asin")
-    public void setIdAmazonItAsin(List<String> idAmazonItAsin) {
-        this.idAmazonItAsin = idAmazonItAsin;
-    }
-
-    @JsonProperty("id_paperback_swap")
-    public List<String> getIdPaperbackSwap() {
-        return idPaperbackSwap;
-    }
-
-    @JsonProperty("id_paperback_swap")
-    public void setIdPaperbackSwap(List<String> idPaperbackSwap) {
-        this.idPaperbackSwap = idPaperbackSwap;
-    }
-
-    @JsonProperty("id_british_national_bibliography")
-    public List<String> getIdBritishNationalBibliography() {
-        return idBritishNationalBibliography;
-    }
-
-    @JsonProperty("id_british_national_bibliography")
-    public void setIdBritishNationalBibliography(List<String> idBritishNationalBibliography) {
-        this.idBritishNationalBibliography = idBritishNationalBibliography;
-    }
-
-    @JsonProperty("id_british_library")
-    public List<String> getIdBritishLibrary() {
-        return idBritishLibrary;
-    }
-
-    @JsonProperty("id_british_library")
-    public void setIdBritishLibrary(List<String> idBritishLibrary) {
-        this.idBritishLibrary = idBritishLibrary;
-    }
-
-    @JsonProperty("id_biblioth\u00e8que_nationale_de_france")
-    public List<String> getIdBibliothQueNationaleDeFrance() {
-        return idBibliothQueNationaleDeFrance;
-    }
-
-    @JsonProperty("id_biblioth\u00e8que_nationale_de_france")
-    public void setIdBibliothQueNationaleDeFrance(List<String> idBibliothQueNationaleDeFrance) {
-        this.idBibliothQueNationaleDeFrance = idBibliothQueNationaleDeFrance;
-    }
-
-    @JsonProperty("id_amazon_co_uk_asin")
-    public List<String> getIdAmazonCoUkAsin() {
-        return idAmazonCoUkAsin;
-    }
-
-    @JsonProperty("id_amazon_co_uk_asin")
-    public void setIdAmazonCoUkAsin(List<String> idAmazonCoUkAsin) {
-        this.idAmazonCoUkAsin = idAmazonCoUkAsin;
-    }
-
-    @JsonProperty("id_bcid")
-    public List<String> getIdBcid() {
-        return idBcid;
-    }
-
-    @JsonProperty("id_bcid")
-    public void setIdBcid(List<String> idBcid) {
-        this.idBcid = idBcid;
     }
 
     @JsonProperty("subject")
@@ -948,16 +699,6 @@ public class Doc {
         this.place = place;
     }
 
-    @JsonProperty("person")
-    public List<String> getPerson() {
-        return person;
-    }
-
-    @JsonProperty("person")
-    public void setPerson(List<String> person) {
-        this.person = person;
-    }
-
     @JsonProperty("ia_loaded_id")
     public List<String> getIaLoadedId() {
         return iaLoadedId;
@@ -976,36 +717,6 @@ public class Doc {
     @JsonProperty("ia_box_id")
     public void setIaBoxId(List<String> iaBoxId) {
         this.iaBoxId = iaBoxId;
-    }
-
-    @JsonProperty("ratings_average")
-    public Double getRatingsAverage() {
-        return ratingsAverage;
-    }
-
-    @JsonProperty("ratings_average")
-    public void setRatingsAverage(Double ratingsAverage) {
-        this.ratingsAverage = ratingsAverage;
-    }
-
-    @JsonProperty("ratings_sortable")
-    public Double getRatingsSortable() {
-        return ratingsSortable;
-    }
-
-    @JsonProperty("ratings_sortable")
-    public void setRatingsSortable(Double ratingsSortable) {
-        this.ratingsSortable = ratingsSortable;
-    }
-
-    @JsonProperty("ratings_count")
-    public Integer getRatingsCount() {
-        return ratingsCount;
-    }
-
-    @JsonProperty("ratings_count")
-    public void setRatingsCount(Integer ratingsCount) {
-        this.ratingsCount = ratingsCount;
     }
 
     @JsonProperty("ratings_count_1")
@@ -1058,6 +769,36 @@ public class Doc {
         this.ratingsCount5 = ratingsCount5;
     }
 
+    @JsonProperty("ratings_average")
+    public Double getRatingsAverage() {
+        return ratingsAverage;
+    }
+
+    @JsonProperty("ratings_average")
+    public void setRatingsAverage(Double ratingsAverage) {
+        this.ratingsAverage = ratingsAverage;
+    }
+
+    @JsonProperty("ratings_sortable")
+    public Double getRatingsSortable() {
+        return ratingsSortable;
+    }
+
+    @JsonProperty("ratings_sortable")
+    public void setRatingsSortable(Double ratingsSortable) {
+        this.ratingsSortable = ratingsSortable;
+    }
+
+    @JsonProperty("ratings_count")
+    public Integer getRatingsCount() {
+        return ratingsCount;
+    }
+
+    @JsonProperty("ratings_count")
+    public void setRatingsCount(Integer ratingsCount) {
+        this.ratingsCount = ratingsCount;
+    }
+
     @JsonProperty("readinglog_count")
     public Integer getReadinglogCount() {
         return readinglogCount;
@@ -1098,26 +839,6 @@ public class Doc {
         this.alreadyReadCount = alreadyReadCount;
     }
 
-    @JsonProperty("publisher_facet")
-    public List<String> getPublisherFacet() {
-        return publisherFacet;
-    }
-
-    @JsonProperty("publisher_facet")
-    public void setPublisherFacet(List<String> publisherFacet) {
-        this.publisherFacet = publisherFacet;
-    }
-
-    @JsonProperty("person_key")
-    public List<String> getPersonKey() {
-        return personKey;
-    }
-
-    @JsonProperty("person_key")
-    public void setPersonKey(List<String> personKey) {
-        this.personKey = personKey;
-    }
-
     @JsonProperty("place_key")
     public List<String> getPlaceKey() {
         return placeKey;
@@ -1126,16 +847,6 @@ public class Doc {
     @JsonProperty("place_key")
     public void setPlaceKey(List<String> placeKey) {
         this.placeKey = placeKey;
-    }
-
-    @JsonProperty("person_facet")
-    public List<String> getPersonFacet() {
-        return personFacet;
-    }
-
-    @JsonProperty("person_facet")
-    public void setPersonFacet(List<String> personFacet) {
-        this.personFacet = personFacet;
     }
 
     @JsonProperty("subject_facet")
@@ -1148,16 +859,6 @@ public class Doc {
         this.subjectFacet = subjectFacet;
     }
 
-    @JsonProperty("_version_")
-    public Long getVersion() {
-        return version;
-    }
-
-    @JsonProperty("_version_")
-    public void setVersion(Long version) {
-        this.version = version;
-    }
-
     @JsonProperty("place_facet")
     public List<String> getPlaceFacet() {
         return placeFacet;
@@ -1168,26 +869,6 @@ public class Doc {
         this.placeFacet = placeFacet;
     }
 
-    @JsonProperty("lcc_sort")
-    public String getLccSort() {
-        return lccSort;
-    }
-
-    @JsonProperty("lcc_sort")
-    public void setLccSort(String lccSort) {
-        this.lccSort = lccSort;
-    }
-
-    @JsonProperty("author_facet")
-    public List<String> getAuthorFacet() {
-        return authorFacet;
-    }
-
-    @JsonProperty("author_facet")
-    public void setAuthorFacet(List<String> authorFacet) {
-        this.authorFacet = authorFacet;
-    }
-
     @JsonProperty("subject_key")
     public List<String> getSubjectKey() {
         return subjectKey;
@@ -1196,16 +877,6 @@ public class Doc {
     @JsonProperty("subject_key")
     public void setSubjectKey(List<String> subjectKey) {
         this.subjectKey = subjectKey;
-    }
-
-    @JsonProperty("ddc_sort")
-    public String getDdcSort() {
-        return ddcSort;
-    }
-
-    @JsonProperty("ddc_sort")
-    public void setDdcSort(String ddcSort) {
-        this.ddcSort = ddcSort;
     }
 
     @JsonAnyGetter

@@ -11,7 +11,6 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import jakarta.validation.Valid;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonPropertyOrder({
@@ -32,14 +31,12 @@ public class WsOpenLibrary {
     @JsonProperty("numFoundExact")
     private Boolean numFoundExact;
     @JsonProperty("docs")
-    @Valid
     private List<Doc> docs;
     @JsonProperty("q")
     private String q;
     @JsonProperty("offset")
     private Object offset;
     @JsonIgnore
-    @Valid
     private Map<String, Object> additionalProperties = new LinkedHashMap<String, Object>();
 
     @JsonProperty("numFound")
