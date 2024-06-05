@@ -3,14 +3,13 @@ package fr.univtours.polytech.bookshop.model.exchangerate;
 
 import java.util.LinkedHashMap;
 import java.util.Map;
-import jakarta.annotation.Generated;
+import javax.annotation.Generated;
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import jakarta.validation.Valid;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonPropertyOrder({
@@ -32,22 +31,20 @@ public class WsExchangeRate {
     @JsonProperty("documentation")
     private String documentation;
     @JsonProperty("terms_of_use")
-    private String termsOfUse;
+    private String terms_of_use;
     @JsonProperty("time_last_update_unix")
-    private Integer timeLastUpdateUnix;
+    private Integer time_last_update_unix;
     @JsonProperty("time_last_update_utc")
-    private String timeLastUpdateUtc;
+    private String time_last_update_utc;
     @JsonProperty("time_next_update_unix")
-    private Integer timeNextUpdateUnix;
+    private Integer time_next_update_unix;
     @JsonProperty("time_next_update_utc")
-    private String timeNextUpdateUtc;
+    private String time_next_update_utc;
     @JsonProperty("base_code")
-    private String baseCode;
+    private String base_code;
     @JsonProperty("conversion_rates")
-    @Valid
-    private ConversionRates conversion_rates;
+    private Conversion_rates conversion_rates;
     @JsonIgnore
-    @Valid
     private Map<String, Object> additionalProperties = new LinkedHashMap<String, Object>();
 
     @JsonProperty("result")
@@ -71,72 +68,72 @@ public class WsExchangeRate {
     }
 
     @JsonProperty("terms_of_use")
-    public String getTermsOfUse() {
-        return termsOfUse;
+    public String getTerms_of_use() {
+        return terms_of_use;
     }
 
     @JsonProperty("terms_of_use")
-    public void setTermsOfUse(String termsOfUse) {
-        this.termsOfUse = termsOfUse;
+    public void setTerms_of_use(String terms_of_use) {
+        this.terms_of_use = terms_of_use;
     }
 
     @JsonProperty("time_last_update_unix")
-    public Integer getTimeLastUpdateUnix() {
-        return timeLastUpdateUnix;
+    public Integer getTime_last_update_unix() {
+        return time_last_update_unix;
     }
 
     @JsonProperty("time_last_update_unix")
-    public void setTimeLastUpdateUnix(Integer timeLastUpdateUnix) {
-        this.timeLastUpdateUnix = timeLastUpdateUnix;
+    public void setTime_last_update_unix(Integer time_last_update_unix) {
+        this.time_last_update_unix = time_last_update_unix;
     }
 
     @JsonProperty("time_last_update_utc")
-    public String getTimeLastUpdateUtc() {
-        return timeLastUpdateUtc;
+    public String getTime_last_update_utc() {
+        return time_last_update_utc;
     }
 
     @JsonProperty("time_last_update_utc")
-    public void setTimeLastUpdateUtc(String timeLastUpdateUtc) {
-        this.timeLastUpdateUtc = timeLastUpdateUtc;
+    public void setTime_last_update_utc(String time_last_update_utc) {
+        this.time_last_update_utc = time_last_update_utc;
     }
 
     @JsonProperty("time_next_update_unix")
-    public Integer getTimeNextUpdateUnix() {
-        return timeNextUpdateUnix;
+    public Integer getTime_next_update_unix() {
+        return time_next_update_unix;
     }
 
     @JsonProperty("time_next_update_unix")
-    public void setTimeNextUpdateUnix(Integer timeNextUpdateUnix) {
-        this.timeNextUpdateUnix = timeNextUpdateUnix;
+    public void setTime_next_update_unix(Integer time_next_update_unix) {
+        this.time_next_update_unix = time_next_update_unix;
     }
 
     @JsonProperty("time_next_update_utc")
-    public String getTimeNextUpdateUtc() {
-        return timeNextUpdateUtc;
+    public String getTime_next_update_utc() {
+        return time_next_update_utc;
     }
 
     @JsonProperty("time_next_update_utc")
-    public void setTimeNextUpdateUtc(String timeNextUpdateUtc) {
-        this.timeNextUpdateUtc = timeNextUpdateUtc;
+    public void setTime_next_update_utc(String time_next_update_utc) {
+        this.time_next_update_utc = time_next_update_utc;
     }
 
     @JsonProperty("base_code")
-    public String getBaseCode() {
-        return baseCode;
+    public String getBase_code() {
+        return base_code;
     }
 
     @JsonProperty("base_code")
-    public void setBaseCode(String baseCode) {
-        this.baseCode = baseCode;
+    public void setBase_code(String base_code) {
+        this.base_code = base_code;
     }
 
     @JsonProperty("conversion_rates")
-    public ConversionRates getConversion_rates() {
+    public Conversion_rates getConversion_rates() {
         return conversion_rates;
     }
 
     @JsonProperty("conversion_rates")
-    public void setConversion_rates(ConversionRates conversion_rates) {
+    public void setConversion_rates(Conversion_rates conversion_rates) {
         this.conversion_rates = conversion_rates;
     }
 

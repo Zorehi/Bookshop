@@ -3,14 +3,13 @@ package fr.univtours.polytech.bookshop.model.exchangerate;
 
 import java.util.LinkedHashMap;
 import java.util.Map;
-import jakarta.annotation.Generated;
+import javax.annotation.Generated;
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import jakarta.validation.Valid;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonPropertyOrder({
@@ -178,7 +177,7 @@ import jakarta.validation.Valid;
     "ZWL"
 })
 @Generated("jsonschema2pojo")
-public class ConversionRates {
+public class Conversion_rates {
 
     @JsonProperty("USD")
     private Integer usd;
@@ -505,7 +504,6 @@ public class ConversionRates {
     @JsonProperty("ZWL")
     private Double zwl;
     @JsonIgnore
-    @Valid
     private Map<String, Object> additionalProperties = new LinkedHashMap<String, Object>();
 
     @JsonProperty("USD")

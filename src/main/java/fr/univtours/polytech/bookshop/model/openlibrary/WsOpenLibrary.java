@@ -4,7 +4,7 @@ package fr.univtours.polytech.bookshop.model.openlibrary;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
-import jakarta.annotation.Generated;
+import javax.annotation.Generated;
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -18,6 +18,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
     "start",
     "numFoundExact",
     "docs",
+    "num_found",
     "q",
     "offset"
 })
@@ -32,6 +33,8 @@ public class WsOpenLibrary {
     private Boolean numFoundExact;
     @JsonProperty("docs")
     private List<Doc> docs;
+    @JsonProperty("num_found")
+    private Integer num_found;
     @JsonProperty("q")
     private String q;
     @JsonProperty("offset")
@@ -77,6 +80,16 @@ public class WsOpenLibrary {
     @JsonProperty("docs")
     public void setDocs(List<Doc> docs) {
         this.docs = docs;
+    }
+
+    @JsonProperty("num_found")
+    public Integer getNum_found() {
+        return num_found;
+    }
+
+    @JsonProperty("num_found")
+    public void setNum_found(Integer num_found) {
+        this.num_found = num_found;
     }
 
     @JsonProperty("q")
