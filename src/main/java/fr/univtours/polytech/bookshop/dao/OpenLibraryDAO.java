@@ -6,4 +6,6 @@ import java.util.List;
 
 public interface OpenLibraryDAO {
     public List<Doc> getBooks(String search, Integer limit);
+
+    public byte[] getImage(String key);
 }
