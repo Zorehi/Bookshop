@@ -16,6 +16,7 @@ import jakarta.servlet.http.HttpServletResponse;
 
 @WebServlet("books")
 public class BooksServlet extends HttpServlet {
+    private static final String url = "https://covers.openlibrary.org/a/olid/";
 
     @Inject
     private BookBusiness bookBusiness;
@@ -31,8 +32,13 @@ public class BooksServlet extends HttpServlet {
         for (BookBean book : books) {
             Doc doc = openLibraryBusiness.searchBook(book.getAuthor(), book.getTitle());
             if (doc != null) {
-                book.setRatings_count(doc.getRatingsCount());
-                book.setRatings_average(doc.getRatingsAverage());
+                book.setRatings_count(doc.getRatings_count());
+                book.setRatings_average(doc.getRatings_average());
+                book.setAuthor_image(url + doc.getAuthor_key().get(0) + ".jpg");
+            } else {
+                book.setRatings_count(0);
+                book.setRatings_average(0D);
+                book.setAuthor_image(null);
             }
         }
 

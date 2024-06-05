@@ -5,5 +5,5 @@ import fr.univtours.polytech.bookshop.model.openlibrary.Doc;
 import java.util.List;
 
 public interface OpenLibraryDAO {
-    public List<Doc> getBooks(String search);
+    public List<Doc> getBooks(String search, Integer limit);
 }

@@ -23,6 +23,8 @@ public class BookBean implements Serializable {
     private Integer ratings_count;
     @Transient
     private Double ratings_average;
+    @Transient
+    private String author_image;
 
     public Integer getId() {
         return id;
@@ -78,5 +80,13 @@ public class BookBean implements Serializable {
 
     public void setRatings_average(Double ratings_average) {
         this.ratings_average = ratings_average;
+    }
+
+    public String getAuthor_image() {
+        return author_image;
+    }
+
+    public void setAuthor_image(String author_image) {
+        this.author_image = author_image;
     }
 }

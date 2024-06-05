@@ -8,6 +8,7 @@ import jakarta.ws.rs.client.ClientBuilder;
 import jakarta.ws.rs.client.WebTarget;
 import jakarta.ws.rs.core.MediaType;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Stateless
@@ -15,7 +16,7 @@ public class OpenLibraryDAOImpl implements OpenLibraryDAO {
     private static String URL = "https://openlibrary.org";
 
     @Override
-    public List<Doc> getBooks(String search) {
+    public List<Doc> getBooks(String search, Integer limit) {
         // Instanciation du client.
         Client client = ClientBuilder.newClient();
 
@@ -29,6 +30,8 @@ public class OpenLibraryDAOImpl implements OpenLibraryDAO {
         target = target.path("search.json");
         // On précise (lorsqu'il y en a) les "query parameters".
         target = target.queryParam("q", search);
+        target = target.queryParam("limit", limit);
+        target = target.queryParam("fields", "author_key,author_name,title,first_sentence,ratings_count,ratings_average");
 
         // On appelle le WS en précisant le type de l'objet renvoyé, ici un
         // WsOpenLibrary.

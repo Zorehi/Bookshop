@@ -14,18 +14,19 @@ public class OpenLibraryBusinessImpl implements OpenLibraryBusiness {
 
     @Override
     public Doc searchBook(String author, String title) {
-        List<Doc> docList = openLibraryDAO.getBooks(title + " " + author);
+        List<Doc> docList = openLibraryDAO.getBooks(title + " " + author, 1);
         if (docList.isEmpty()) { return null; }
-        return docList.get(0);
-        /*
-        for (Doc doc : docList) {
-            if (doc.getTitle() == null && doc.getAuthorName().isEmpty()) continue;
+
+        /*for (Doc doc : docList) {
+            if (doc.getTitle() == null || doc.getAuthor_name() == null) continue;
             if (title.equals(doc.getTitle())
-                    && doc.getAuthorName().stream().anyMatch(author::equals)) {
+                    && doc.getAuthor_name().stream().anyMatch(author::equals)) {
                 return doc;
             }
         }
 
+
         return null;*/
+        return docList.get(0);
     }
 }

@@ -85,9 +85,9 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 public class Doc {
 
     @JsonProperty("author_key")
-    private List<String> authorKey;
+    private List<String> author_key;
     @JsonProperty("author_name")
-    private List<String> authorName;
+    private List<String> author_name;
     @JsonProperty("ebook_access")
     private String ebookAccess;
     @JsonProperty("ebook_count_i")
@@ -195,11 +195,11 @@ public class Doc {
     @JsonProperty("ratings_count_5")
     private Integer ratingsCount5;
     @JsonProperty("ratings_average")
-    private Double ratingsAverage;
+    private Double ratings_average;
     @JsonProperty("ratings_sortable")
     private Double ratingsSortable;
     @JsonProperty("ratings_count")
-    private Integer ratingsCount;
+    private Integer ratings_count;
     @JsonProperty("readinglog_count")
     private Integer readinglogCount;
     @JsonProperty("want_to_read_count")
@@ -220,23 +220,23 @@ public class Doc {
     private Map<String, Object> additionalProperties = new LinkedHashMap<String, Object>();
 
     @JsonProperty("author_key")
-    public List<String> getAuthorKey() {
-        return authorKey;
+    public List<String> getAuthor_key() {
+        return author_key;
     }
 
     @JsonProperty("author_key")
-    public void setAuthorKey(List<String> authorKey) {
-        this.authorKey = authorKey;
+    public void setAuthor_key(List<String> author_key) {
+        this.author_key = author_key;
     }
 
     @JsonProperty("author_name")
-    public List<String> getAuthorName() {
-        return authorName;
+    public List<String> getAuthor_name() {
+        return author_name;
     }
 
     @JsonProperty("author_name")
-    public void setAuthorName(List<String> authorName) {
-        this.authorName = authorName;
+    public void setAuthor_name(List<String> author_name) {
+        this.author_name = author_name;
     }
 
     @JsonProperty("ebook_access")
@@ -770,13 +770,13 @@ public class Doc {
     }
 
     @JsonProperty("ratings_average")
-    public Double getRatingsAverage() {
-        return ratingsAverage;
+    public Double getRatings_average() {
+        return ratings_average;
     }
 
     @JsonProperty("ratings_average")
-    public void setRatingsAverage(Double ratingsAverage) {
-        this.ratingsAverage = ratingsAverage;
+    public void setRatings_average(Double ratings_average) {
+        this.ratings_average = ratings_average;
     }
 
     @JsonProperty("ratings_sortable")
@@ -790,13 +790,13 @@ public class Doc {
     }
 
     @JsonProperty("ratings_count")
-    public Integer getRatingsCount() {
-        return ratingsCount;
+    public Integer getRatings_count() {
+        return ratings_count;
     }
 
     @JsonProperty("ratings_count")
-    public void setRatingsCount(Integer ratingsCount) {
-        this.ratingsCount = ratingsCount;
+    public void setRatings_count(Integer ratings_count) {
+        this.ratings_count = ratings_count;
     }
 
     @JsonProperty("readinglog_count")
