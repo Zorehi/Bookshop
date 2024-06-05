@@ -25,6 +25,7 @@
                 <th>Photo auteur</th>
                 <th>Nombre de notes</th>
                 <th>Moyenne des notes</th>
+                <th>Prix(EUR)</th>
             </tr>
             <c:forEach items="${requestScope.BOOKS}" var="book">
                 <tr>
@@ -38,6 +39,7 @@
                     </c:if>
                     <td>${book.ratings_count}</td>
                     <td>${book.ratings_average}</td>
+                    <td>${book.converted_price}</td>
                 </tr>
             </c:forEach>
         </table>

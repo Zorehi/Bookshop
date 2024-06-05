@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.util.List;
 
 import fr.univtours.polytech.bookshop.business.BookBusiness;
+import fr.univtours.polytech.bookshop.business.ExchangeRateBusiness;
 import fr.univtours.polytech.bookshop.business.OpenLibraryBusiness;
 import fr.univtours.polytech.bookshop.model.BookBean;
 import fr.univtours.polytech.bookshop.model.openlibrary.Doc;
@@ -24,12 +25,19 @@ public class BooksServlet extends HttpServlet {
     @Inject
     private OpenLibraryBusiness openLibraryBusiness;
 
+    @Inject
+    private ExchangeRateBusiness exchangeRateBusiness;
+
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         List<BookBean> books = this.bookBusiness.getBooks();
 
         for (BookBean book : books) {
+            if(!book.getCurrency().equals("EUR"))
+            {
+               book.setConverted_price(exchangeRateBusiness.convertToEUR(book.getCurrency(),book.getPrice()));
+            }
             Doc doc = openLibraryBusiness.searchBook(book.getAuthor(), book.getTitle());
             if (doc != null) {
                 book.setRatings_count(doc.getRatings_count());

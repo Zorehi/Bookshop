@@ -2,10 +2,8 @@ package fr.univtours.polytech.bookshop.model;
 
 import java.io.Serializable;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
+import jakarta.transaction.TransactionScoped;
 import jakarta.xml.bind.annotation.XmlRootElement;
 
 @Entity(name = "BOOK")
@@ -23,6 +21,8 @@ public class BookBean implements Serializable {
     private Integer ratings_count;
     @Transient
     private Double ratings_average;
+    @Transient
+    private Float converted_price;
     @Transient
     private String author_image;
 
@@ -82,6 +82,9 @@ public class BookBean implements Serializable {
         this.ratings_average = ratings_average;
     }
 
+    public Float getConverted_price() { return converted_price; }
+
+    public void setConverted_price(Float converted_price) {this.converted_price = converted_price;}
     public String getAuthor_image() {
         return author_image;
     }
