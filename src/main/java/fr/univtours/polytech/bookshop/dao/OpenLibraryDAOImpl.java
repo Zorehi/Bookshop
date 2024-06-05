@@ -1,5 +1,6 @@
 package fr.univtours.polytech.bookshop.dao;
 
+import fr.univtours.polytech.bookshop.model.BookBean;
 import fr.univtours.polytech.bookshop.model.openlibrary.Doc;
 import fr.univtours.polytech.bookshop.model.openlibrary.WsOpenLibrary;
 import jakarta.ejb.Stateless;
@@ -8,12 +9,13 @@ import jakarta.ws.rs.client.ClientBuilder;
 import jakarta.ws.rs.client.WebTarget;
 import jakarta.ws.rs.core.MediaType;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @Stateless
 public class OpenLibraryDAOImpl implements OpenLibraryDAO {
     private static String URL = "https://openlibrary.org";
+
+    private static String URL2 = "https://covers.openlibrary.org";
 
     @Override
     public List<Doc> getBooks(String search, Integer limit) {
@@ -38,5 +40,27 @@ public class OpenLibraryDAOImpl implements OpenLibraryDAO {
         System.out.println(target.getUri());
         WsOpenLibrary wsOpenLibrary = target.request(MediaType.APPLICATION_JSON).get(WsOpenLibrary.class);
         return wsOpenLibrary.getDocs();
+    }
+
+    public byte[] getImage(String key)
+    {
+        // Instanciation du client.
+        Client client = ClientBuilder.newClient();
+
+        // On indique l'URL du Web Service.
+        WebTarget target = client.target(URL);
+
+        // On indique le "end point" (on aurait aussi pu directement le mettre dans
+        // l'URL).
+        // C'est également avec cette méthode qu'on pourrait ajouter des "path
+        // parameters" si besoin.
+        target = target.path("/a/olid/"+ key +".jpg");
+        // On précise (lorsqu'il y en a) les "query parameters".
+
+        // On appelle le WS en précisant le type de l'objet renvoyé, ici un
+        // WsOpenLibrary.
+        System.out.println(target.getUri());
+        BookBean bookBean = target.request(MediaType.APPLICATION_JSON).get(BookBean.class);
+        return bookBean.getAuthor_image();
     }
 }

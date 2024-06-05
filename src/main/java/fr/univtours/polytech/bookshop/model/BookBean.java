@@ -1,6 +1,7 @@
 package fr.univtours.polytech.bookshop.model;
 
 import java.io.Serializable;
+import java.util.Base64;
 
 import jakarta.persistence.*;
 import jakarta.transaction.TransactionScoped;
@@ -23,10 +24,12 @@ public class BookBean implements Serializable {
     private Double ratings_average;
     @Transient
     private Float converted_price;
-    @Transient
-    private String author_image;
+    
     @Transient
     private String first_sentence;
+    @Transient
+    private byte[] author_image;
+
 
     public Integer getId() {
         return id;
@@ -87,11 +90,12 @@ public class BookBean implements Serializable {
     public Float getConverted_price() { return converted_price; }
 
     public void setConverted_price(Float converted_price) {this.converted_price = converted_price;}
-    public String getAuthor_image() {
+
+    public byte[] getAuthor_image() {
         return author_image;
     }
 
-    public void setAuthor_image(String author_image) {
+    public void setAuthor_image(byte[] author_image) {
         this.author_image = author_image;
     }
 
@@ -101,5 +105,11 @@ public class BookBean implements Serializable {
 
     public void setFirst_sentence(String first_sentence) {
         this.first_sentence = first_sentence;
+    public String getBase64Image() {
+        if (null != this.author_image && !"".equals(this.author_image)) {
+            return Base64.getEncoder().encodeToString(this.author_image);
+        } else {
+            return "";
+        }
     }
 }

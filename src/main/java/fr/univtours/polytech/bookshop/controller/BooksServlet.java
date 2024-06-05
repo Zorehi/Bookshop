@@ -42,7 +42,7 @@ public class BooksServlet extends HttpServlet {
             if (doc != null) {
                 book.setRatings_count(doc.getRatings_count());
                 book.setRatings_average(doc.getRatings_average());
-                book.setAuthor_image(url + doc.getAuthor_key().get(0) + ".jpg");
+
             } else {
                 book.setRatings_count(0);
                 book.setRatings_average(0D);
