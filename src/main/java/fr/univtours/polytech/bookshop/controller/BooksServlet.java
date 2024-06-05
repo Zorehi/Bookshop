@@ -1,7 +1,9 @@
 package fr.univtours.polytech.bookshop.controller;
 
 import java.io.IOException;
+import java.math.BigDecimal;
 import java.util.List;
+import java.util.Map;
 
 import fr.univtours.polytech.bookshop.business.BookBusiness;
 import fr.univtours.polytech.bookshop.business.ExchangeRateBusiness;
@@ -33,11 +35,9 @@ public class BooksServlet extends HttpServlet {
             throws ServletException, IOException {
         List<BookBean> books = this.bookBusiness.getBooks();
 
+        Map<String, Double> conversionRates = exchangeRateBusiness.getConversionRate("EUR");
+
         for (BookBean book : books) {
-            if(!book.getCurrency().equals("EUR"))
-            {
-               book.setConverted_price(exchangeRateBusiness.convertToEUR(book.getCurrency(),book.getPrice()));
-            }
             Doc doc = openLibraryBusiness.searchBook(book.getAuthor(), book.getTitle());
             if (doc != null) {
                 book.setRatings_count(doc.getRatings_count());
@@ -47,6 +47,10 @@ public class BooksServlet extends HttpServlet {
                 book.setRatings_count(0);
                 book.setRatings_average(0D);
                 book.setAuthor_image(null);
+            }
+            if (book.getPrice() != null) {
+                BigDecimal bigDecimal = BigDecimal.valueOf(conversionRates.get(book.getCurrency()) * book.getPrice()).setScale(2, BigDecimal.ROUND_HALF_UP);
+                book.setConverted_price(bigDecimal.floatValue());
             }
         }
 

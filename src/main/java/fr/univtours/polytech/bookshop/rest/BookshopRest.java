@@ -1,7 +1,10 @@
 package fr.univtours.polytech.bookshop.rest;
 
 import fr.univtours.polytech.bookshop.business.BookBusiness;
+import fr.univtours.polytech.bookshop.business.ExchangeRateBusiness;
+import fr.univtours.polytech.bookshop.business.OpenLibraryBusiness;
 import fr.univtours.polytech.bookshop.model.BookBean;
+import fr.univtours.polytech.bookshop.model.openlibrary.Doc;
 import jakarta.ejb.EJB;
 import jakarta.transaction.Transactional;
 import jakarta.ws.rs.*;
@@ -9,36 +12,47 @@ import jakarta.ws.rs.core.HttpHeaders;
 import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
 
 @Path("v1")
 public class BookshopRest {
     @EJB
     private BookBusiness bookBusiness;
 
+    @EJB
+    private ExchangeRateBusiness exchangeRateBusiness;
+
+    @EJB
+    private OpenLibraryBusiness openLibraryBusiness;
+
     @Path("books")
     @GET
     @Produces({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
     public List<BookBean> getBooks(@QueryParam("auteur") String filtreAuteur, @QueryParam("titre") String filtreTitre) {
         List<BookBean> books = this.bookBusiness.getBooks();
-        List<BookBean> results = new ArrayList<BookBean>();
-        if (null != filtreAuteur && !"".equals(filtreAuteur)) {
-            for (BookBean bookBean : books) {
-                if (bookBean.getAuthor().contains(filtreAuteur)) {
-                    results.add(bookBean);
+        List<BookBean> results = books.stream()
+                .filter(livre -> (filtreAuteur == null || livre.getAuthor().toLowerCase().contains(filtreAuteur.toLowerCase())))
+                .filter(livre -> (filtreTitre == null || livre.getTitle().toLowerCase().contains(filtreTitre.toLowerCase())))
+                .collect(Collectors.toList());
+
+        Map<String, Double> conversionRates = exchangeRateBusiness.getConversionRate("EUR");
+        for (BookBean bookBean : results) {
+            Doc doc = openLibraryBusiness.searchBook(bookBean.getAuthor(), bookBean.getTitle());
+            if (null != doc) {
+                bookBean.setRatings_count(doc.getRatings_count());
+                bookBean.setRatings_average(doc.getRatings_average());
+                if (doc.getFirst_sentence() != null && !doc.getFirst_sentence().isEmpty()) {
+                    bookBean.setFirst_sentence(doc.getFirst_sentence().get(0));
                 }
             }
-            if (null != filtreTitre && !"".equals(filtreTitre)){
-                for (BookBean bookBean : results) {
-                    if (!bookBean.getTitle().contains(filtreTitre)) {
-                        results.remove(bookBean);
-                    }
-                }
+            if (bookBean.getPrice() != null) {
+                BigDecimal bigDecimal = BigDecimal.valueOf(conversionRates.get(bookBean.getCurrency()) * bookBean.getPrice()).setScale(2, BigDecimal.ROUND_HALF_UP);
+                bookBean.setConverted_price(bigDecimal.floatValue());
             }
-        }
-        else {
-            results = books;
         }
 
         return results;
@@ -48,6 +62,21 @@ public class BookshopRest {
     @Produces({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
     public BookBean getBook(@PathParam("id") Integer idBook) {
         BookBean bookBean = this.bookBusiness.getBook(idBook);
+
+        Map<String, Double> conversionRates = exchangeRateBusiness.getConversionRate("EUR");
+        Doc doc = openLibraryBusiness.searchBook(bookBean.getAuthor(), bookBean.getTitle());
+        if (null != doc) {
+            bookBean.setRatings_count(doc.getRatings_count());
+            bookBean.setRatings_average(doc.getRatings_average());
+            if (doc.getFirst_sentence() != null && !doc.getFirst_sentence().isEmpty()) {
+                bookBean.setFirst_sentence(doc.getFirst_sentence().get(0));
+            }
+        }
+        if (bookBean.getPrice() != null) {
+            BigDecimal bigDecimal = BigDecimal.valueOf(conversionRates.get(bookBean.getCurrency()) * bookBean.getPrice()).setScale(2, BigDecimal.ROUND_HALF_UP);
+            bookBean.setConverted_price(bigDecimal.floatValue());
+        }
+
         return bookBean;
     }
 
@@ -109,7 +138,7 @@ public class BookshopRest {
     @Transactional
     @PATCH
     @Path("books/{id}")
-    public Response patchBook(@PathParam("id") Integer idBook, BookBean bookBean,  @HeaderParam(HttpHeaders.AUTHORIZATION) String auth) {
+    public Response patchBook(@PathParam("id") Integer idBook, BookBean bookBean, @HeaderParam(HttpHeaders.AUTHORIZATION) String auth) {
         if (!"42".equals(auth))
         {
             return Response.status(Response.Status.UNAUTHORIZED).build();

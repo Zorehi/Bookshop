@@ -43,7 +43,7 @@ public class WsExchangeRate {
     @JsonProperty("base_code")
     private String base_code;
     @JsonProperty("conversion_rates")
-    private Conversion_rates conversion_rates;
+    private Map<String, Double> conversion_rates;
     @JsonIgnore
     private Map<String, Object> additionalProperties = new LinkedHashMap<String, Object>();
 
@@ -128,12 +128,12 @@ public class WsExchangeRate {
     }
 
     @JsonProperty("conversion_rates")
-    public Conversion_rates getConversion_rates() {
+    public Map<String, Double> getConversion_rates() {
         return conversion_rates;
     }
 
     @JsonProperty("conversion_rates")
-    public void setConversion_rates(Conversion_rates conversion_rates) {
+    public void setConversion_rates(Map<String, Double> conversion_rates) {
         this.conversion_rates = conversion_rates;
     }
 

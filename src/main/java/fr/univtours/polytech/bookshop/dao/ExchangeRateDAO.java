@@ -1,8 +1,8 @@
 package fr.univtours.polytech.bookshop.dao;
 
-import fr.univtours.polytech.bookshop.model.exchangerate.Conversion_rates;
+import java.util.Map;
 
 public interface ExchangeRateDAO {
 
-    public Conversion_rates getConversion();
+    public Map<String, Double> getConversion(String currency);
 }

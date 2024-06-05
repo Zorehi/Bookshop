@@ -1,6 +1,5 @@
 package fr.univtours.polytech.bookshop.dao;
 
-import fr.univtours.polytech.bookshop.model.exchangerate.Conversion_rates;
 import fr.univtours.polytech.bookshop.model.exchangerate.WsExchangeRate;
 import jakarta.ejb.Stateless;
 import jakarta.ws.rs.client.Client;
@@ -8,11 +7,13 @@ import jakarta.ws.rs.client.ClientBuilder;
 import jakarta.ws.rs.client.WebTarget;
 import jakarta.ws.rs.core.MediaType;
 
+import java.util.Map;
+
 @Stateless
-public class ExchangeRateDAOImpl implements ExchangeRateDAO{
+public class ExchangeRateDAOImpl implements ExchangeRateDAO {
     private static String URL ="https://v6.exchangerate-api.com";
 
-    public Conversion_rates getConversion() {
+    public Map<String, Double> getConversion(String currency) {
         // Instanciation du client.
         Client client = ClientBuilder.newClient();
 
@@ -23,10 +24,11 @@ public class ExchangeRateDAOImpl implements ExchangeRateDAO{
         // l'URL).
         // C'est également avec cette méthode qu'on pourrait ajouter des "path
         // parameters" si besoin.
-        target = target.path("/v6/4ac297b860f208ebd39c01d5/latest/EUR");
+        target = target.path("v6/4ac297b860f208ebd39c01d5/latest/" + currency);
 
         // On appelle le WS en précisant le type de l'objet renvoyé, ici un
         // WsOpenLibrary.
+        System.out.println(target.getUri());
         WsExchangeRate wsExchangeRate = target.request(MediaType.APPLICATION_JSON).get(WsExchangeRate.class);
         return wsExchangeRate.getConversion_rates();
     }

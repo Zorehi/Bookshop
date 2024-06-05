@@ -28,12 +28,12 @@ public class BookDAOImpl implements BookDAO {
 
     @Override
     public void createBook(BookBean bookBean) {
-        em.persist(bookBean);
+        em.merge(bookBean);
     }
 
     @Override
     public void updateBook(BookBean bookBean) {
-        em.persist(bookBean);
+        em.merge(bookBean);
     }
 
     @Override

@@ -1,5 +1,7 @@
 package fr.univtours.polytech.bookshop.business;
 
+import java.util.Map;
+
 public interface ExchangeRateBusiness {
-    public float convertToEUR(String currency, float value);
+    public Map<String, Double> getConversionRate(String currency);
 }

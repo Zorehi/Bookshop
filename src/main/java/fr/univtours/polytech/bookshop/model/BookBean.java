@@ -25,6 +25,8 @@ public class BookBean implements Serializable {
     private Float converted_price;
     @Transient
     private String author_image;
+    @Transient
+    private String first_sentence;
 
     public Integer getId() {
         return id;
@@ -91,5 +93,13 @@ public class BookBean implements Serializable {
 
     public void setAuthor_image(String author_image) {
         this.author_image = author_image;
+    }
+
+    public String getFirst_sentence() {
+        return first_sentence;
+    }
+
+    public void setFirst_sentence(String first_sentence) {
+        this.first_sentence = first_sentence;
     }
 }
